@@ -1,0 +1,53 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/grants">Grants</a></li>
+    <li class="breadcrumb-item active" aria-current="page">View Grant</li>
+  </ol>
+</nav>
+
+<div class="view-user p-3">
+  {{#each rows}}
+  <div class="row mb-5">
+    <div class="col text-center">
+      <h3>{{this.title}}</h3>
+      <h3>${{this.amount}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Amont</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Donor</th>
+            <th scope="col">Status</th>
+            <th scope="col">Date Received</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{this.title}}</th>
+            <td>{{this.amount}}</td>
+            <td>{{this.designation}}</td>
+            <td>{{this.donor}}</td>
+            <td>{{this.status}}</td>
+            <td>{{this.date_received}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col">
+        <b>Comments</b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        {{this.comments}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

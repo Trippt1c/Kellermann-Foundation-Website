@@ -1,0 +1,189 @@
+<div class="col-6">
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      value="{{this.title}}"
+      placeholder="Grant Cycle"
+      name="grant_cycle"
+    />
+    <label for="floatingInput">Grant Cycle</label>
+  </div>
+</div>
+<div class="col-6">
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      value="{{this.amount}}"
+      placeholder="amount"
+      name="amount"
+    />
+    <label for="floatingInput">Amount</label>
+  </div>
+</div>
+
+<div class="col-4">
+  <div class="form-floating mb-3">
+    <select class="form-select p-3" id="designation" name="designation">
+      {{#if this.designation}}
+        <option value="{{this.designation}}">{{this.designation}}</option>
+      {{else}}
+        <option value="N/A">Designation</option>
+      {{/if}}
+      <option value="BCH">BCH</option>
+      <option value="BDP">BDP</option>
+      <option value="UNSB">UNSB</option>
+      <option value="ENJU">ENJU</option>
+    </select>
+  </div>
+</div>
+
+<div class="col-4">
+  <div class="form-floating mb-3">
+    <input
+      type="date"
+      class="form-control"
+      id="floatingInput"
+      value="{{this.application_due_date}}"
+      placeholder="now"
+      name="application_due_date"
+    />
+    <label for="floatingInput">Application Due Date </label>
+  </div>
+</div>
+
+<div class="col-4">
+  <div class="form-floating mb-3">
+    <input
+      type="date"
+      class="form-control"
+      id="floatingInput"
+      value="{{this.date_applied}}"
+      placeholder="now"
+      name="date_appplied"
+    />
+    <label for="floatingInput">Date Applied</label>
+  </div>
+</div>
+
+<div class="col-4">
+  <div class="form-floating mb-3">
+    <input
+      type="date"
+      class="form-control"
+      id="floatingInput"
+      value="{{this.grant_decision_date}}"
+      placeholder="now"
+      name="grant_decision_date"
+    />
+    <label for="floatingInput">Date of Grant Decision</label>
+  </div>
+</div>
+
+<div class="col-4">
+  <div class="form-floating mb-3">
+    <input
+      type="date"
+      class="form-control"
+      id="floatingInput"
+      value="{{this.report_submitted_date}}"
+      placeholder="now"
+      name="report_submitted_date"
+    />
+    <label for="floatingInput">Date Report Submitted</label>
+  </div>
+</div>
+
+{{!-- <div class="col-3">
+  <div class="form-floating mb-3">
+    <input
+      type="date"
+      class="form-control"
+      id="floatingInput"
+      value="{{this.date_received}}"
+      placeholder="now"
+      name="grant_submitted_date"
+    />
+    <label for="floatingInput">Date Grant Submitted</label>
+  </div>
+</div> --}}
+
+<div class="col-4">
+  <div class="form-floating mb-3">
+    <input
+      type="date"
+      class="form-control"
+      id="floatingInput"
+      value="{{this.funds_received_date}}"
+      placeholder="now"
+      name="funds_received_date"
+    />
+    <label for="floatingInput">Date Funds Received</label>
+  </div>
+</div>
+
+<div class="col-4">
+  <div class="form-floating mb-3">
+    <input
+      type="date"
+      class="form-control"
+      id="floatingInput"
+      value="{{this.report_due_date}}"
+      placeholder="now"
+      name="report_due_date"
+    />
+    <label for="floatingInput">Date Report Due</label>
+  </div>
+</div>
+
+<div class="col-4">
+  <div class="">
+    <select class="form-select p-3" value="{{this.org_id}}" name="org_id">
+      {{#unless this.org_id}}
+        <option>Pick A Funding Org</option>
+      {{/unless}}
+
+      {{#if this.org_name}}
+        <option value={{this.org_id}}>{{this.org_name}}</option>
+      {{/if}}
+
+      {{#each orgs}}
+        <option value={{this.org_id}}>{{this.org_name}}</option>
+      {{/each}}
+    </select>
+  </div>
+</div>
+
+<div class="col-4">
+  <div class="form-floating mb-3">
+    <select class="form-select p-3" value="{{this.status}}" id="status"name="status">
+      {{#if this.status}}
+        <option value="funded">funded</option>
+      {{else}}
+        <option value="N/A">Status</option>
+      {{/if}}
+      <option value="funded">funded</option>
+      <option value="in progress">in progress</option>
+      <option value="not started">not started</option>
+    </select>
+  </div>
+</div>
+
+<div class="col-12">
+  <div class="form-floating mb-3">
+    <textarea
+      class="form-control"
+      placeholder="Leave a comment here"
+      id="comments"
+      name="comments"
+      style="height: 200px"
+    >{{this.comments}}</textarea>
+    <label for="comments">Comments</label>
+  </div>
+</div>
+<div class="col-12 d-grid">
+  <button class="btn btn-primary" type="submit">Submit</button>
+</div>
