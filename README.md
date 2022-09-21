@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Kellerman Database Website
 This project was build for the kellerman foundation to handle there grants, donations, and reports.
@@ -133,3 +134,6 @@ https://www.youtube.com/watch?v=1aXZQcG2Y6I&ab_channel=Raddy
 
 - [@Fernando4242](https://github.com/Fernando4242)
 
+=======
+# Kellermann-Foundation-Website
+>>>>>>> 23375941e8b3db211da1db6285c1b2d681a40531
