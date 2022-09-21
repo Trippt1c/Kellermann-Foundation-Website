@@ -1,0 +1,80 @@
+{{#if removedUser}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    Grant has been removed.
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+{{/if}}
+
+<div class="row">
+  <div class="col-6">
+    <h5>Major Donors and Organizations</h5>
+  </div>
+  <div class="col-6 d-flex justify-content-end">
+    <a
+      href="orgs/addgrant"
+      type="button"
+      class="btn btn-primary align-self-center m-1"
+    >+ Add Grant</a>
+    <a
+      href="orgs/addorg"
+      type="button"
+      class="btn btn-primary align-self-center"
+    >+ Add Org</a>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-condensed">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Funding Organization</th>
+        <th scope="col"># Grants Funded</th>
+        <th scope="col">Total Amount</th>
+        <th scope="col">Main Contact</th>
+        <th scope="col">Website</th>
+        <th scope="col">Address</th>
+        <th scope="col" class="text-end">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {{#each rows}}
+        <tr>
+          <th scope="row">{{this.org_id}}</th>
+          <td>{{this.org_name}}</td>
+          <td>{{this.totalgrants}}</td>
+          <td>{{this.grants_total_amount}}</td>
+          <td>{{this.contact_name}}</td>
+          <td>{{this.webaddress}}</td>
+          <td>{{this.address_line1}} {{this.city}}, {{this.state}}</td>
+          <td class="text-end">
+            <div class="d-flex flex-row justify-content-around">
+              <a
+                href="orgs/vieworg/{{this.org_id}}"
+                type="button"
+                class="btn btn-outline-secondary btn-small m-1"
+              ><i class="bi bi-eye"></i> View</a>
+              <a
+                href="orgs/edit-org/{{this.org_id}}"
+                type="button"
+                class="btn btn-outline-secondary btn-small m-1"
+              ><i class="bi bi-pencil"></i>
+                Edit</a>
+              <a
+                href="grants/delete/{{this.id}}"
+                type="button"
+                class="btn btn-outline-secondary btn-small m-1"
+              ><i class="bi bi-person-x"></i> Delete</a>
+            </div>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c9dc7326-a279-4a68-85c3-0255e97066d6/resourceGroups/kgrantdbv1rg/providers/Microsoft.Web/sites/kgrantdbv1",
+    "appService.deploySubpath": "."
+}

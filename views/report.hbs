@@ -1,0 +1,196 @@
+{{!-- Scrolling limits --}}
+
+<div style="padding:15px 15px 200px;">
+
+  <form class="row g-3 needs-validation" novalidate>
+    {{!-- Report Builder Tab Form --}}
+
+    <h1>Report Builder</h1>
+
+    <div class="col-3 d-grid">
+      <a href="report/reportDefault" type="button" class="btn btn-primary align-self-center">+ Generate Default Report</a>
+    </div>
+
+
+    <h3 style="padding-top: 40px;">Setup Options</h3>
+
+    {{!-- Report Name user input --}}
+
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" value="{{this.report_name}}"
+          placeholder="Name Of Report" name="report_name" />
+        <label for="floatingInput">Name Of Report</label>
+      </div>
+    </div>
+
+    {{!-- Report type user input --}}
+
+    <div class="col-6">
+      <select id="floatingInput" class="form-select p-3" name="report_type">
+        {{#if this.report_type}}
+        <option selected value="{{this.report_type}}">{{this.report_type}}</option>
+        {{else}}
+        <option selected>Report Type</option>
+        {{/if}}
+        <option value="Foundations">Foundations</option>
+        <option value="Grants">Grants</option>
+        <option value="Grant Calender">Grant Calender</option>
+        <option value="Pending Grants">Pending Grants</option>
+      </select>
+    </div>
+
+    {{!-- Org name user input dropdown --}}
+
+    <div class="col-6">
+      <div class="">
+        <select class="form-select p-3" value="{{this.org_id}}" name="org_id">
+          {{#unless this.org_id}}
+          <option>Organization Name</option>
+          {{/unless}}
+
+          {{#if this.org_name}}
+          <option value={{this.org_id}}>{{this.org_name}}</option>
+          {{/if}}
+
+          {{#each rows}}
+          <option value={{this.org_id}}>{{this.org_name}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+
+    {{!-- Export to Button --}}
+
+    <div class="col-6">
+      <select id="floatingInput" class="form-select p-3" name="report_designation">
+        {{#if this.export_destination}}
+        <option selected value="{{this.export_destination}}">{{this.export_destination}}</option>
+        {{else}}
+        <option selected>Export To</option>
+        {{/if}}
+        <option value="EXCEL">EXCEL</option>
+        <option value="PDF">PDF</option>
+        <option value="CSV">CSV</option>
+      </select>
+    </div>
+
+    {{!-- Filer Section... Org Name, Date range, Amount Range, Designation, Include Deadlines, Export destination --}}
+
+    <h3 style="padding-top: 40px;">Filters</h3>
+
+    {{!-- Deadline checkbox --}}
+
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+      <input type="checkbox" class="btn-check" id="deadline_btn" autocomplete="off">
+      <label class="btn btn-outline-primary" for="deadline_btn">Include Deadlines</label>
+    </div>
+
+    {{!-- Designation Checkbox --}}
+
+    <div class="btn-group col-4" role="group" aria-label="Basic checkbox toggle button group">
+      <input type="checkbox" class="btn-check" id="designation_btn" autocomplete="off">
+      <label class="btn btn-outline-primary" for="designation_btn">Designation</label>
+    </div>
+
+    {{!-- Designation dropdown --}}
+
+    <div class="col-8">
+      <select id="floatingInput" class="form-select p-3" name="report_designation">
+        {{#if this.report_designation}}
+        <option selected value="{{this.report_designation}}">{{this.report_designation}}</option>
+        {{else}}
+        <option selected>Report Designation</option>
+        {{/if}}
+        <option value="ENJU">ENJU</option>
+        <option value="BCH">BCH</option>
+        <option value="UNSB">UNSB</option>
+        <option value="BDP">BDP</option>
+      </select>
+    </div>
+
+    {{!-- Date range checkbox --}}
+
+    <div class="btn-group col-4" role="group" aria-label="Basic checkbox toggle button group">
+      <input type="checkbox" class="btn-check" id="date_range_btn" autocomplete="off">
+      <label class="btn btn-outline-primary" for="date_range_btn">Date Range</label>
+    </div>
+
+    {{!-- Date Range From --}}
+
+    <div class="col-4">
+      <div class="form-floating mb-3">
+        <input type="date" class="form-control" id="floatingInput" value="{{this.range_date_min}}"
+          placeholder="Date Range From" name="date_range_min" />
+        <label for="floatingInput">Date Range From</label>
+      </div>
+    </div>
+
+    {{!-- Date Range To --}}
+
+    <div class="col-4">
+      <div class="form-floating mb-3">
+        <input type="date" class="form-control" id="floatingInput" value="{{this.range_date_max}}"
+          placeholder="Date Range To" name="date_range_max" />
+        <label for="floatingInput">Date Range To</label>
+      </div>
+    </div>
+
+    {{!-- Amount range checkbox --}}
+
+    <div class="btn-group col-4" role="group" aria-label="Basic checkbox toggle button group">
+      <input type="checkbox" class="btn-check" id="amount_range" autocomplete="off">
+      <label class="btn btn-outline-primary" for="amount_range">Amount Range</label>
+    </div>
+
+    {{!-- Amount range user input min --}}
+
+    <div class="col-4">
+      <div class="form-floating mb-3">
+        <input onkeydown="return false" type="text" class="form-control" id="floatingInput" value="{{this.amount_min}}"
+          placeholder="From" name="amonut_min" />
+        <label for="floatingInput">From</label>
+      </div>
+    </div>
+
+    {{!-- Amount range user input min --}}
+
+    <div class="col-4">
+      <div class="form-floating mb-3">
+        <input onkeydown="return false" type="text" class="form-control" id="floatingInput" value="{{this.amount_max}}"
+          placeholder="max" name="amount_max" />
+        <label for="floatingInput">To</label>
+      </div>
+    </div>
+
+    {{!-- Generate Button --}}
+
+    <div class="col-12 d-grid">
+      <button class="btn btn-primary" type="generate_btn">Generate</button>
+    </div>
+
+    {{!-- PDF Preview Example --}}
+
+</div>
+</div>
+</form>
+
+
+
+{{!-- Scrolling Script --}}
+
+<script>
+  // When the user scrolls down 20px from the top of the document, slide down the navbar
+  window.onscroll = function () { scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("navbar").style.top = "0";
+    } else {
+      document.getElementById("navbar").style.top = "-50px";
+    }
+  }
+</script>
+</body>
+
+</html>
